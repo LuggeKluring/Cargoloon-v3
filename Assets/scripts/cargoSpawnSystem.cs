@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class cargoSpawnSystem : MonoBehaviour
 {
-    private float coordX;
-    private float coordY;
     [Range(1,10)]
-    [SerializeField] float spawnDelay;
-    [Range(1, 99)]
-    [SerializeField] int spawnQty = 1;
+    [SerializeField] float spawnDelay = 0;
+    //[Range(1, 99)]
+    //[SerializeField] int spawnQty = 1;
     [Range(1, 10)]
-    [SerializeField] float initTime;
+    [SerializeField] float initTime = 1;
     public Rigidbody2D cargo;
+    public Camera screenBounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +26,8 @@ public class cargoSpawnSystem : MonoBehaviour
 
     void SpawnCargo()
     {
-        coordX = Random.Range(0.5f, 11.6f);
-        coordY = Random.Range(7.5f, 8.5f);
-        cargo = Instantiate(cargo, new Vector2(coordX, coordY), Quaternion.identity);
+        Vector2 spawnVector = screenBounds.ViewportToWorldPoint(new Vector2(Random.Range(0.05f, 0.95f), Random.Range(1.2f, 1.5f)));
+        cargo = Instantiate(cargo, spawnVector, Quaternion.identity);
 
-        /*
-        for (int i = 0; i < spawnQty; i++)
-        {
-            System.Console.Out.Write("Spawn");
-            coordX = Random.Range(0.5f, 11.6f);
-            coordY = Random.Range(7.5f, 8.5f);
-            transform.position = new Vector2(coordX, coordY);
-            cargoBox = Instantiate(cargo, transform.position, Quaternion.identity);
-        }
-        */
     }
 }

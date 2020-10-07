@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5A24E8A0-D766-C8BE-3A93-D27497A93B1F}</ProjectGuid>
+    <ProjectGuid>{8E16FB26-D34B-E169-0DD9-F0F57E8CB552}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Common.Runtime</AssemblyName>
@@ -596,7 +596,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{08CF5705-13C6-371F-6E82-2CE770CFD6D2}</Project>
+      <Project>{318941FA-63D2-2365-0A89-052C1ECDA01A}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

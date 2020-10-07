@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4385D9D2-D345-B255-A428-2EE03F3A4002}</ProjectGuid>
+    <ProjectGuid>{C5C8FBBF-398E-612A-5CFA-120C93574EFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Animation.Triangle.Runtime</AssemblyName>
@@ -692,11 +692,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{B97B7D66-451C-C4F1-6998-F9661B4FD5EB}</Project>
+      <Project>{B96F188E-6D7F-1D74-818B-48E3072C4066}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{08CF5705-13C6-371F-6E82-2CE770CFD6D2}</Project>
+      <Project>{318941FA-63D2-2365-0A89-052C1ECDA01A}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

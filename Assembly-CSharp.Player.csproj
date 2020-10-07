@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BEED9C08-8184-702B-9BB4-495529A132E2}</ProjectGuid>
+    <ProjectGuid>{7854BF67-0AC4-4A23-AE6B-E3F77F6B08A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,10 +56,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/scripts/gameScript.cs" />
-    <Compile Include="Assets/scripts/PlayerController.cs" />
-    <Compile Include="Assets/scripts/cargoSpawnSystem.cs" />
     <Compile Include="Assets/scripts/ObstacleSpawnSystem.cs" />
     <Compile Include="Assets/scripts/ScoreSystem.cs" />
+    <Compile Include="Assets/scripts/PlayerController.cs" />
+    <Compile Include="Assets/scripts/cargoSpawnSystem.cs" />
+    <Compile Include="Assets/scripts/CargoScoreSystem.cs" />
+    <Compile Include="Assets/scripts/CloudSpawnSystem.cs" />
+    <Compile Include="Assets/scripts/DespawnObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -647,43 +650,43 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
-      <Project>{BD6AB846-0682-C3DF-21BB-EF16DF64F0BE}</Project>
+      <Project>{3896A677-E797-165A-A43E-56B6FA2BB7E3}</Project>
       <Name>Unity.2D.Animation.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{08CF5705-13C6-371F-6E82-2CE770CFD6D2}</Project>
+      <Project>{318941FA-63D2-2365-0A89-052C1ECDA01A}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{FB7F19CB-760F-5D09-8957-F9C6339E8F47}</Project>
+      <Project>{68059EA3-6053-ED7E-E019-ED5E425FE149}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Triangle.Runtime.csproj">
-      <Project>{4385D9D2-D345-B255-A428-2EE03F3A4002}</Project>
+      <Project>{C5C8FBBF-398E-612A-5CFA-120C93574EFD}</Project>
       <Name>Unity.2D.Animation.Triangle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{C56A5D14-D8C5-246F-4FDD-5344C119FE48}</Project>
+      <Project>{4A5B304C-056D-18E6-4779-AD9D0E3AFD9F}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{09743CB7-6CFD-B453-7198-0F23DE774617}</Project>
+      <Project>{ECED5B25-4FD1-9D7F-4CF1-E1BF4AAC2133}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{63792543-6609-B1E4-EAD0-35E814E441C9}</Project>
+      <Project>{F5CE60D9-0ED2-4B06-6942-07AFE78A8452}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
-      <Project>{A70155E1-A9CE-0EE4-A1C5-0590B6297331}</Project>
+      <Project>{01452AFE-F6FC-DA8E-82C5-11BB6FAFAEC5}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
-      <Project>{918A1972-A61C-13B4-1389-2795579DB1BF}</Project>
+      <Project>{09DBCDB6-2298-1FDC-E246-8223AA719C99}</Project>
       <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{C8E10262-2E98-95AC-559B-216210284E57}</Project>
+      <Project>{F685408C-9CCF-C2CD-74A1-375D88679DE4}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
   </ItemGroup>

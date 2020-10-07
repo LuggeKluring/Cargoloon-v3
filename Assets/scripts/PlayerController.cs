@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
     [Range(1.0f, 5.0f)]
     [SerializeField] float moveSpeedFactor = 0;
     private Vector2 movement;
+    public ScoreSystem scoreSystem;
     // Start is called before the first frame update
     void Start()
     {
         balloon.GetComponent<Rigidbody2D>();
+        Debug.Log("Score: " + scoreSystem.getScore());
     }
 
     // Update is called once per frame
@@ -36,8 +38,15 @@ public class PlayerController : MonoBehaviour
         balloon.AddForce(movement * (moveSpeed * moveSpeedFactor) * Time.deltaTime);
         
     }
-    
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void MoveMobile()
     {
         // Skapa vektor för lutningskontroll

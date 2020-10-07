@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class ObstacleSpawnSystem : MonoBehaviour
 {
-    [Range(1f, 100f)] [SerializeField] float obstacleSpawnDelay = 1;
+    [Range(1f, 100f)] [SerializeField] float obstacleSpawnDelay = 10;
     [Range(1f, 100f)] [SerializeField] float birdsPerSpawn = 1;
     [Range(1f, 100f)] [SerializeField] float bombsPerSpawn = 1;
-    public int score;
+    [SerializeField] float flySpeed = 1;
+    public int spawnQty;
     [SerializeField] GameObject birdFlyRight;
     [SerializeField] GameObject birdFlyLeft;
     [SerializeField] GameObject bomb;
+    public Camera screenBounds;
+    public ScoreSystem scoreSystem;
     //[SerializeField] GameObject player;
-    private float bombSpawnCoordX;
-    private float bombSpawnCoordY;
-    private float birdSpawnCoordX;
-    private float birdSpawnCoordY;
+    
     // Start is called before the first frame update
     void Start()
-    {
-        ScoreSystem.instance.addScore(1000);
+    {   
         StartCoroutine(SpawnObstacle());
     }
 
@@ -30,59 +29,65 @@ public class ObstacleSpawnSystem : MonoBehaviour
     }
     void SpawnBirdsRight()
     {
+        
+        Vector2 spawnVector = screenBounds.ViewportToWorldPoint(new Vector2(Random.Range(-0.5f, -0.2f), Random.Range(0f, 1f)));
         for (int i = 0; i < birdsPerSpawn; i++)
         {
-            birdSpawnCoordX = Random.Range(-0.38f, -2);
-            birdSpawnCoordY = Random.Range(0.25f, 6.6f);
-            birdFlyRight = Instantiate(birdFlyRight, new Vector2(birdSpawnCoordX, birdSpawnCoordY), Quaternion.identity);
+            birdFlyRight = Instantiate(birdFlyRight, spawnVector, Quaternion.identity);
+            Rigidbody2D rb2d = birdFlyRight.GetComponent<Rigidbody2D>();
+            rb2d.AddForce(new Vector2(flySpeed, 0));
         }
     }
     void SpawnBirdsLeft()
     {
+        
+        Vector2 spawnVector = screenBounds.ViewportToWorldPoint(new Vector2(Random.Range(1.2f, 1.5f), Random.Range(0f, 1f)));
         for (int i = 0; i < birdsPerSpawn; i++)
         {
-            birdSpawnCoordX = Random.Range(14.7f, 16f);
-            birdSpawnCoordY = Random.Range(0.25f, 6.6f);
-            birdFlyLeft = Instantiate(birdFlyLeft, new Vector2(birdSpawnCoordX, birdSpawnCoordY), Quaternion.identity);
+            birdFlyLeft = Instantiate(birdFlyLeft, spawnVector, Quaternion.identity);
+            Rigidbody2D rb2d = birdFlyLeft.GetComponent<Rigidbody2D>();
+            rb2d.AddForce(new Vector2(-flySpeed, 0));
+
         }
     }
     void SpawnBombs()
     {
+        
+        Vector2 spawnVector = screenBounds.ViewportToWorldPoint(new Vector2(Random.Range(0f, 1f), Random.Range(1.2f, 1.5f)));
         for (int i = 0; i < bombsPerSpawn; i++)
         {
-            bombSpawnCoordX = Random.Range(-1.9f, 14.0f);
-            bombSpawnCoordY = Random.Range(7.2f, 9.0f);
-            bomb = Instantiate(bomb, new Vector2(bombSpawnCoordX, bombSpawnCoordY), Quaternion.identity);
+            bomb = Instantiate(bomb, spawnVector, Quaternion.identity);
         }
     }
     IEnumerator SpawnObstacle()
     {
         while (true)
         {
-            Debug.Log("Score: " + score);
+            
             yield return new WaitForSeconds(obstacleSpawnDelay);
-            score = (ScoreSystem.instance.getScore() / 100) +1;
-            for (int i = 0; i <= score; i++)
+            spawnQty = (scoreSystem.getScore() / 150) +1;
+            Debug.Log("Spawn Quantity: " + spawnQty);
+            for (int i = 0; i < spawnQty; i++)
             {
-                float dice;
-                dice = Random.Range(1f, 3f);
-                if (dice == 1f)
+                int dice;
+                dice = Random.Range(0, 4);
+                
+                if (dice == 1)
                 {
                     SpawnBirdsLeft();
-
                 }
-                if (dice == 2f)
+                if (dice == 2)
                 {
                     SpawnBirdsRight();
 
                 }
-                if (dice == 3f)
+                if (dice == 3)
                 {
                     SpawnBombs();
                 }
                 else
                 {
-                    Debug.Log("Fel");
+                    Debug.Log("Missat loop");
                 }
                 
             }

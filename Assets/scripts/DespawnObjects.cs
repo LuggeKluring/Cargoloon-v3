@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreSystem : MonoBehaviour
+public class DespawnObjects : MonoBehaviour
 {
-    
-    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +15,8 @@ public class ScoreSystem : MonoBehaviour
     {
         
     }
-    public void addScore(int score)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        this.score += score;
-        Debug.Log("Score: " + this.score);
-    }
-    public int getScore()
-    {
-        return score;
+        Destroy(collider.gameObject);
     }
 }
